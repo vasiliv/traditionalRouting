@@ -9,25 +9,26 @@ namespace traditionalRouting {
     public class RouteConfig {
         public static void RegisterRoutes(RouteCollection routes) {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapMvcAttributeRoutes();
+
             //http://localhost:62507/students
-            routes.MapRoute(
-                name: "allStudents",
-                url: "students",
-                defaults: new { controller = "Student", action = "GetAllStudents" }
-            );
+            //routes.MapRoute(
+            //    name: "allStudents",
+            //    url: "students",
+            //    defaults: new { controller = "Student", action = "GetAllStudents" }
+            //);
             //http://localhost:62507/students/1
-            routes.MapRoute(
-                name: "student",
-                url: "students/{id}",
-                defaults: new { controller = "Student", action = "GetStudent" }
-            );
-            //http://localhost:62507/students/1/address
-            routes.MapRoute(
-                name: "studentAddress",
-                url: "students/{id}/Address",
-                defaults: new { controller = "Student", action = "GetStudentAddress" },
-                constraints: new {id = @"\d+"}
-            );
+            //routes.MapRoute(
+            //    name: "student",
+            //    url: "students/{id}",
+            //    defaults: new { controller = "Student", action = "GetStudent" }
+            //);
+            //routes.MapRoute(
+            //    name: "studentAddress",
+            //    url: "students/{id}/Address",
+            //    defaults: new { controller = "Student", action = "GetStudentAddress" },
+            //    constraints: new {id = @"\d+"}
+            //);
 
             routes.MapRoute(
                 name: "Default",

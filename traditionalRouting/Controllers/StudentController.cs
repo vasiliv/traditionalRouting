@@ -8,20 +8,27 @@ using traditionalRouting.Models;
 
 namespace traditionalRouting.Controllers
 {
+    [RoutePrefix("students")]
     public class StudentController : Controller
     {
-        // GET: Student
+        //[Route("students")]
+        // tu RoutePrefix-s vikenebt:
+        [Route("")]
         public ActionResult GetAllStudents()
         {
             var students = Students();
             return View(students);
         }
         //http://localhost:62507/Student/getstudent?id=1
+        //[Route("students/{id}")]
+        [Route("{id}")]
         public ActionResult GetStudent(int id) {
             var students = Students().FirstOrDefault(x => x.Id == id);
             return View(students);
         }
         //http://localhost:62507/Student/GetStudentAddress?id=1
+        //[Route("students/{id}/address")]
+        [Route("{id}/address")]
         public ActionResult GetStudentAddress(int id) {
             var studentAddress = Students().Where(x => x.Id == id).Select(x => x.Address).FirstOrDefault();
             return View(studentAddress);
